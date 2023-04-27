@@ -14,12 +14,10 @@ namespace DataFactoryViewer.Data
     public class DatasetDto : BaseDataFactoryObject
     {
         public DatasetDto(DatasetResource resource, IAdfSerializer serializer)
+            : base(resource, serializer)
         {
-            Id = resource.Id;
-            Name = resource.Name;
             Description = resource.Properties.Description;
             TypeName = resource.Properties.GetType().Name;
-            Json = serializer.ToJson(resource);
         }
     }
 }

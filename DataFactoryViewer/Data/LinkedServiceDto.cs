@@ -14,12 +14,15 @@ namespace DataFactoryViewer.Data
     public class LinkedServiceDto: BaseDataFactoryObject
     {
         public LinkedServiceDto(LinkedServiceResource resource, IAdfSerializer serializer)
+            : base(resource, serializer)
         {
-            Id = resource.Id;
-            Name = resource.Name;
             Description = resource.Properties.Description;
             TypeName = resource.Properties.GetType().Name;
-            Json = serializer.ToJson(resource);
+            if(resource.Properties.Annotations != null && resource.Properties.Annotations.Count > 0)
+            {
+                Annotations = resource.Properties.Annotations.Select(a => a.ToString())
+                    .ToList();
+            }
         }
     }
 }

@@ -22,6 +22,22 @@
                     </button>
                 </h2>
                 <div id="@item.Name" class="accordion-collapse collapse" data-bs-parent="#lsAccordion">
+                @if (item.Annotations != null)
+                {
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                Annotations:)
+                            </div>
+                            @foreach (var annotation in item.Annotations)
+                            {
+                                <div class="col">
+                                    @annotation)
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
                     <div class="accordion-body bg-body-secondary">
                         <pre>@Html.Raw(item.Json)</pre>
                     </div>

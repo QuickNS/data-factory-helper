@@ -14,12 +14,10 @@ namespace DataFactoryViewer.Data
     public class PipelineDto : BaseDataFactoryObject
     {
         public PipelineDto(PipelineResource resource, IAdfSerializer serializer)
+            :base(resource, serializer)
         {
-            Id = resource.Id;
-            Name = resource.Name;
             Description = resource.Description;
             TypeName = "";
-            Json = serializer.ToJson(resource);
         }
     }
 }

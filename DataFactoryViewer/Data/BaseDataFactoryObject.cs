@@ -44,5 +44,20 @@ namespace DataFactoryViewer.Data
             get { return _json; }
             set { _json = value; }
         }
+
+        private List<string> _annotations;
+
+        public List<string> Annotations
+        {
+            get { return _annotations; }
+            set { _annotations = value; }
+        }
+
+        public BaseDataFactoryObject(SubResource resource, IAdfSerializer serializer)
+        {
+            Id = resource.Id;
+            Name = resource.Name;
+            Json = serializer.ToJson(resource);
+        }
     }
 }
