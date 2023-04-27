@@ -9709,19 +9709,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nuno_\\.nuget\\packages\\": {}
+    "C:\\Users\\nunos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\DataFactoryHelper\\DataFactoryViewer\\DataFactoryViewer.csproj",
+      "projectUniqueName": "C:\\code\\data-factory-helper\\DataFactoryViewer\\DataFactoryViewer.csproj",
       "projectName": "DataFactoryViewer",
-      "projectPath": "C:\\code\\DataFactoryHelper\\DataFactoryViewer\\DataFactoryViewer.csproj",
-      "packagesPath": "C:\\Users\\nuno_\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\DataFactoryHelper\\DataFactoryViewer\\obj\\",
+      "projectPath": "C:\\code\\data-factory-helper\\DataFactoryViewer\\DataFactoryViewer.csproj",
+      "packagesPath": "C:\\Users\\nunos\\.nuget\\packages\\",
+      "outputPath": "C:\\code\\data-factory-helper\\DataFactoryViewer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nuno_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nunos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9735,8 +9735,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj": {
-              "projectPath": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj"
+            "C:\\code\\data-factory-helper\\DataFactoryHelper\\DataFactoryHelper.csproj": {
+              "projectPath": "C:\\code\\data-factory-helper\\DataFactoryHelper\\DataFactoryHelper.csproj"
             }
           }
         }

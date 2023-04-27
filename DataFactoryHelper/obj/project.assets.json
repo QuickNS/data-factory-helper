@@ -5529,19 +5529,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nuno_\\.nuget\\packages\\": {}
+    "C:\\Users\\nunos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj",
+      "projectUniqueName": "C:\\code\\data-factory-helper\\DataFactoryHelper\\DataFactoryHelper.csproj",
       "projectName": "DataFactoryHelper",
-      "projectPath": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj",
-      "packagesPath": "C:\\Users\\nuno_\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\obj\\",
+      "projectPath": "C:\\code\\data-factory-helper\\DataFactoryHelper\\DataFactoryHelper.csproj",
+      "packagesPath": "C:\\Users\\nunos\\.nuget\\packages\\",
+      "outputPath": "C:\\code\\data-factory-helper\\DataFactoryHelper\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nuno_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nunos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
