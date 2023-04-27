@@ -1,0 +1,19 @@
+﻿@model DataFactoryViewer.Data.FactoryDataDto
+<div class="text-start">
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h1 class="display-6">Data Factory Information</h1>
+        @Html.Partial("DataFactoryConfigView", Model.DataFactoryConfig)
+    </div>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h1 class="display-6">Linked Services</h1>
+        @Html.Partial("AdfAssetList", Model.LinkedServices)
+    </div>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h1 class="display-6">Datasets</h1>
+        @Html.Partial("AdfAssetList", Model.Datasets)
+    </div>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h1 class="display-6">Pipelines</h1>
+        @Html.Partial("AdfAssetList", Model.Pipelines)
+    </div>
+</div>

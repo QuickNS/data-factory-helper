@@ -1,0 +1,12 @@
+C:\code\DataFactoryHelper\DataFactoryHelper\bin\Debug\net6.0\DataFactoryHelper.deps.json
+C:\code\DataFactoryHelper\DataFactoryHelper\bin\Debug\net6.0\DataFactoryHelper.dll
+C:\code\DataFactoryHelper\DataFactoryHelper\bin\Debug\net6.0\DataFactoryHelper.pdb
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.csproj.AssemblyReference.cache
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.AssemblyInfoInputs.cache
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.AssemblyInfo.cs
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.csproj.CoreCompileInputs.cache
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.dll
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\refint\DataFactoryHelper.dll
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\DataFactoryHelper.pdb
+C:\code\DataFactoryHelper\DataFactoryHelper\obj\Debug\net6.0\ref\DataFactoryHelper.dll

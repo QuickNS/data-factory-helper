@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj": {}
+  },
+  "projects": {
+    "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj",
+        "projectName": "DataFactoryHelper",
+        "projectPath": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\DataFactoryHelper.csproj",
+        "packagesPath": "C:\\Users\\nuno_\\.nuget\\packages\\",
+        "outputPath": "C:\\code\\DataFactoryHelper\\DataFactoryHelper\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nuno_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Azure.Management.DataFactory": {
+              "target": "Package",
+              "version": "[9.3.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.53.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

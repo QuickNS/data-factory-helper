@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFactoryHelper", "DataFactoryHelper\DataFactoryHelper.csproj", "{21F5401C-1CBD-48ED-901E-7405B45B50BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFactoryViewer", "DataFactoryViewer\DataFactoryViewer.csproj", "{2A838F7D-7D8B-4DD7-A5D8-3F4C18C88D82}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21F5401C-1CBD-48ED-901E-7405B45B50BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F5401C-1CBD-48ED-901E-7405B45B50BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F5401C-1CBD-48ED-901E-7405B45B50BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F5401C-1CBD-48ED-901E-7405B45B50BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A838F7D-7D8B-4DD7-A5D8-3F4C18C88D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A838F7D-7D8B-4DD7-A5D8-3F4C18C88D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A838F7D-7D8B-4DD7-A5D8-3F4C18C88D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A838F7D-7D8B-4DD7-A5D8-3F4C18C88D82}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46A9793F-0A2A-455A-A250-5A789EA43D6D}
+	EndGlobalSection
+EndGlobal
