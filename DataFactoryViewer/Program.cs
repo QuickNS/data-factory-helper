@@ -13,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Configuration.AddJsonFile("appsettings.json");
+builder.Configuration.AddJsonFile("appsettings.Development.json");
 var adfConfig = builder.Configuration.GetSection("DataFactory");
 builder.Services.Configure<DataFactoryConfig>(adfConfig);
 var dataFactoryConfig = adfConfig.Get<DataFactoryConfig>();
