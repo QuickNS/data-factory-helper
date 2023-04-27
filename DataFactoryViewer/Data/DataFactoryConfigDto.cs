@@ -17,7 +17,7 @@ namespace DataFactoryViewer.Data
         public string ClientSecret { get; set; }
         [Display(Name = "Resource Group")]
         public string ResourceGroupName { get; set; }
-        [Display(Name = "Data Factory Account")]
+        [Display(Name = "Data Factory")]
         public string FactoryName { get; set; }
 
         public DataFactoryConfigDto(DataFactoryConfig config)

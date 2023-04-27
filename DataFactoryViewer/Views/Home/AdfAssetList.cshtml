@@ -2,7 +2,7 @@
 
 @if (Model != null && Model.Count() > 0)
 {
-    <div class="accordion rounded" id="lsAccordion">
+    <div class="accordion" id="lsAccordion">
         @foreach (var item in Model)
         {
             <div class="accordion-item ">
@@ -10,7 +10,7 @@
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@item.Name" aria-expanded="false" aria-controls="@item.Name">
                         <div class="container">
                             <div class="row">
-                                <div class="col">
+                                <div class="col text-primary">
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </div>
                                 <div class="col-6 text-nowrap" style="text-overflow: ellipsis; overflow: hidden; overflow: hidden">
