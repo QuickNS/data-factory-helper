@@ -42,6 +42,12 @@ builder.Services.AddScoped<IPipelinesHelper, PipelinesHelper>(
         dataFactoryConfig.ResourceGroupName,
         dataFactoryConfig.FactoryName));
 
+builder.Services.AddScoped<ITriggersHelper, TriggersHelper>(
+    provider => new TriggersHelper(
+        provider.GetService<IDataFactoryClient>(),
+        dataFactoryConfig.ResourceGroupName,
+        dataFactoryConfig.FactoryName));
+
 builder.Services.AddScoped<IAdfSerializer, AdfSerializer>();
 
 var app = builder.Build();

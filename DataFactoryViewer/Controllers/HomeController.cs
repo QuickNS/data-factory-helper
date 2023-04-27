@@ -17,17 +17,19 @@ namespace DataFactoryViewer.Controllers
         private readonly ILinkedServicesHelper _linkedServicesHelper;
         private readonly IDatasetHelper _dataSetHelper;
         private readonly IPipelinesHelper _pipelinelinesHelper;
+        private readonly ITriggersHelper _triggersHelper;
         private readonly IAdfSerializer _serializer;
         
         private readonly DataFactoryConfig _dataFactoryConfig;
         
 
-        public HomeController(IOptions<DataFactoryConfig> config, IAdfSerializer serializer, IPipelinesHelper pipelinesHelper, IDatasetHelper datasetHelper, ILinkedServicesHelper linkedServicesHelper, ILogger<HomeController> logger)
+        public HomeController(IOptions<DataFactoryConfig> config, IAdfSerializer serializer, IPipelinesHelper pipelinesHelper, ITriggersHelper triggersHelper, IDatasetHelper datasetHelper, ILinkedServicesHelper linkedServicesHelper, ILogger<HomeController> logger)
         {
             _logger = logger;
             _dataFactoryConfig = config.Value;
             _linkedServicesHelper = linkedServicesHelper;
             _dataSetHelper = datasetHelper;
+            _triggersHelper = triggersHelper;
             _pipelinelinesHelper = pipelinesHelper;
             _serializer = serializer;
         }
@@ -59,6 +61,13 @@ namespace DataFactoryViewer.Controllers
             foreach (var pipeline in pipelines)
             {
                 model.Pipelines.Add(new PipelineDto(pipeline, _serializer));
+            }
+
+            //triggers
+            var triggers = _triggersHelper.GetTriggersAsync().Result;
+            foreach (var trigger in triggers)
+            {
+                model.Triggers.Add(new TriggerDto(trigger, _serializer));
             }
 
             return View(model);

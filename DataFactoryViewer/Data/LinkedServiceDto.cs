@@ -18,11 +18,6 @@ namespace DataFactoryViewer.Data
         {
             Description = resource.Properties.Description;
             TypeName = resource.Properties.GetType().Name;
-            if(resource.Properties.Annotations != null && resource.Properties.Annotations.Count > 0)
-            {
-                Annotations = resource.Properties.Annotations.Select(a => a.ToString())
-                    .ToList();
-            }
         }
     }
 }

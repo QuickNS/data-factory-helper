@@ -1,43 +1,29 @@
 ﻿@model IEnumerable<DataFactoryViewer.Data.BaseDataFactoryObject>
 
+@if (Model != null && Model.Count() > 0)
+{
     <div class="accordion rounded" id="lsAccordion">
         @foreach (var item in Model)
         {
             <div class="accordion-item ">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@item.Name" aria-expanded="false" aria-controls="@item.Name">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </div>
-                            <div class="col-6 text-nowrap" style="text-overflow: ellipsis; overflow: hidden; overflow: hidden">
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(modelItem => item.TypeName)
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </div>
+                                <div class="col-6 text-nowrap" style="text-overflow: ellipsis; overflow: hidden; overflow: hidden">
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(modelItem => item.TypeName)
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </button>
                 </h2>
                 <div id="@item.Name" class="accordion-collapse collapse" data-bs-parent="#lsAccordion">
-                @if (item.Annotations != null)
-                {
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                Annotations:)
-                            </div>
-                            @foreach (var annotation in item.Annotations)
-                            {
-                                <div class="col">
-                                    @annotation)
-                                </div>
-                            }
-                        </div>
-                    </div>
-                }
                     <div class="accordion-body bg-body-secondary">
                         <pre>@Html.Raw(item.Json)</pre>
                     </div>
@@ -45,3 +31,10 @@
             </div>
         }
     </div>
+}
+else
+{
+    <div class="container p-3 text-secondary">
+        No items to show!
+    </div>
+}
