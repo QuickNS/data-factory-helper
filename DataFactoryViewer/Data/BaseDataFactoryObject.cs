@@ -12,14 +12,16 @@ namespace DataFactoryViewer.Data
         public string Description { get; set; }
         public string TypeName { get; set; }
         public string Json { get; set; }
+        public string Bicep { get; set; }
 
-        public BaseDataFactoryObject(SubResource resource, IAdfSerializer serializer)
+        public BaseDataFactoryObject(SubResource resource, IAdfSerializer serializer, IJsonToBicepConverter converter)
         {
             Id = resource.Id;
             Name = resource.Name;
             Json = serializer.ToJson(resource);
             Description = "";
             TypeName = "";
+            Bicep = converter.Convert(Json);
         }
     }
 }

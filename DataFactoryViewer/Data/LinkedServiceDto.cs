@@ -13,8 +13,8 @@ namespace DataFactoryViewer.Data
 {
     public class LinkedServiceDto: BaseDataFactoryObject
     {
-        public LinkedServiceDto(LinkedServiceResource resource, IAdfSerializer serializer)
-            : base(resource, serializer)
+        public LinkedServiceDto(LinkedServiceResource resource, IAdfSerializer serializer, IJsonToBicepConverter converter)
+            : base(resource, serializer, converter)
         {
             Description = resource.Properties.Description;
             TypeName = resource.Properties.GetType().Name;

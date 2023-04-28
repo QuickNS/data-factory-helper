@@ -19,11 +19,11 @@ namespace DataFactoryViewer.Controllers
         private readonly IPipelinesHelper _pipelinelinesHelper;
         private readonly ITriggersHelper _triggersHelper;
         private readonly IAdfSerializer _serializer;
-        
+        private readonly IJsonToBicepConverter _bicepConverter;
         private readonly DataFactoryConfig _dataFactoryConfig;
         
 
-        public HomeController(IOptions<DataFactoryConfig> config, IAdfSerializer serializer, IPipelinesHelper pipelinesHelper, ITriggersHelper triggersHelper, IDatasetHelper datasetHelper, ILinkedServicesHelper linkedServicesHelper, ILogger<HomeController> logger)
+        public HomeController(IOptions<DataFactoryConfig> config, IAdfSerializer serializer, IJsonToBicepConverter converter, IPipelinesHelper pipelinesHelper, ITriggersHelper triggersHelper, IDatasetHelper datasetHelper, ILinkedServicesHelper linkedServicesHelper, ILogger<HomeController> logger)
         {
             _logger = logger;
             _dataFactoryConfig = config.Value;
@@ -32,6 +32,7 @@ namespace DataFactoryViewer.Controllers
             _triggersHelper = triggersHelper;
             _pipelinelinesHelper = pipelinesHelper;
             _serializer = serializer;
+            _bicepConverter = converter;
         }
 
         public IActionResult Index()
@@ -46,28 +47,28 @@ namespace DataFactoryViewer.Controllers
             
             foreach (var linkedService in linkedServices)
             {
-                model.LinkedServices.Add(new LinkedServiceDto(linkedService, _serializer));
+                model.LinkedServices.Add(new LinkedServiceDto(linkedService, _serializer, _bicepConverter));
             }
 
             //datasets
             var datasets = _dataSetHelper.GetDatasetsAsync().Result;
             foreach (var dataset in datasets)
             {
-                model.Datasets.Add(new DatasetDto(dataset, _serializer));
+                model.Datasets.Add(new DatasetDto(dataset, _serializer, _bicepConverter));
             }
 
             //pipelines
             var pipelines = _pipelinelinesHelper.GetPipelinesAsync().Result;
             foreach (var pipeline in pipelines)
             {
-                model.Pipelines.Add(new PipelineDto(pipeline, _serializer));
+                model.Pipelines.Add(new PipelineDto(pipeline, _serializer, _bicepConverter));
             }
 
             //triggers
             var triggers = _triggersHelper.GetTriggersAsync().Result;
             foreach (var trigger in triggers)
             {
-                model.Triggers.Add(new TriggerDto(trigger, _serializer));
+                model.Triggers.Add(new TriggerDto(trigger, _serializer, _bicepConverter));
             }
 
             return View(model);

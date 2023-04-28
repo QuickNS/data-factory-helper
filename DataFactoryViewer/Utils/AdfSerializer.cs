@@ -1,8 +1,10 @@
 ﻿using DataFactoryHelper;
-using Microsoft.Azure.Management.DataFactory;
 using Microsoft.Azure.Management.DataFactory.Models;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System.Text;
 
 namespace DataFactoryViewer.Utils
 {
@@ -10,11 +12,13 @@ namespace DataFactoryViewer.Utils
     {
         private string[] ignoreProperties = new[] { "id", "etag", "runtimeState", "type" };
 
-
         private JsonSerializerSettings _serializerSettings;
-        public AdfSerializer(IDataFactoryClient client)
+        private ILogger<AdfSerializer> _logger;
+
+        public AdfSerializer(ILogger<AdfSerializer> logger, IDataFactoryClient client)
         {
-            _serializerSettings = new JsonSerializerSettings()
+            _logger = logger;
+            _serializerSettings =  new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented,
                 NullValueHandling = NullValueHandling.Ignore,
@@ -37,9 +41,18 @@ namespace DataFactoryViewer.Utils
 
         public string ToJson(object o)
         {
-            return SafeJsonConvert.SerializeObject(o, _serializerSettings);
+            if (o == null) { return String.Empty; }
+            try
+            {
+                return SafeJsonConvert.SerializeObject(o, _serializerSettings);
+                
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return String.Empty;
+            }
         }
-
 
     }
 }

@@ -13,8 +13,8 @@ namespace DataFactoryViewer.Data
 {
     public class PipelineDto : BaseDataFactoryObject
     {
-        public PipelineDto(PipelineResource resource, IAdfSerializer serializer)
-            :base(resource, serializer)
+        public PipelineDto(PipelineResource resource, IAdfSerializer serializer, IJsonToBicepConverter converter)
+            :base(resource, serializer, converter)
         {
             Description = resource.Description;
             TypeName = "";

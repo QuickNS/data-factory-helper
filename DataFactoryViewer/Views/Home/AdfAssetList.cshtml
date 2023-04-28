@@ -25,7 +25,19 @@
                 </h2>
                 <div id="@item.Name" class="accordion-collapse collapse" data-bs-parent="#lsAccordion">
                     <div class="accordion-body bg-body-secondary">
-                        <pre>@Html.Raw(item.Json)</pre>
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#@String.Concat("json",item.Name)">JSON</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#@String.Concat("bicep",item.Name)">Bicep</a></li>
+                        </ul>
+                        <hr />
+                        <div class="tab-content">
+                            <div id="@String.Concat("json",item.Name)" class="tab-pane active show">
+                                <pre>@Html.Raw(item.Json)</pre>
+                            </div>
+                            <div id="@String.Concat("bicep",item.Name)" class="tab-pane">
+                                <pre>@Html.Raw(item.Bicep)</pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

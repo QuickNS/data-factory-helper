@@ -50,6 +50,7 @@ builder.Services.AddScoped<ITriggersHelper, TriggersHelper>(
         dataFactoryConfig.FactoryName));
 
 builder.Services.AddScoped<IAdfSerializer, AdfSerializer>();
+builder.Services.AddScoped<IJsonToBicepConverter, JsonToBicepConverter>();
 
 var app = builder.Build();
 
