@@ -14,7 +14,7 @@ namespace DataFactoryViewer.Data
     public class DatasetDto : BaseDataFactoryObject
     {
         public DatasetDto(DatasetResource resource, IAdfSerializer serializer, IJsonToBicepConverter converter)
-            : base(resource, serializer, converter)
+            : base(resource, DataFactoryObjectType.Dataset, serializer, converter)
         {
             Description = resource.Properties.Description;
             TypeName = resource.Properties.GetType().Name;

@@ -1,5 +1,6 @@
 ﻿using DataFactoryHelper;
 using Microsoft.Azure.Management.DataFactory.Models;
+using Microsoft.Extensions.Options;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -10,32 +11,25 @@ namespace DataFactoryViewer.Utils
 {
     public class AdfSerializer : IAdfSerializer
     {
-        private string[] ignoreProperties = new[] { "id", "etag", "runtimeState", "type" };
-
         private JsonSerializerSettings _serializerSettings;
+        private JsonSerializerSettings _adfSerializerSettings;
         private ILogger<AdfSerializer> _logger;
+
+        private string[] propNamesToIgnore = new string[] { "id", "etag" };
 
         public AdfSerializer(ILogger<AdfSerializer> logger, IDataFactoryClient client)
         {
             _logger = logger;
-            _serializerSettings =  new JsonSerializerSettings()
+            _adfSerializerSettings = client.Initialize().SerializationSettings;
+            _serializerSettings = new JsonSerializerSettings
             {
-                Formatting = Formatting.Indented,
                 NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Formatting.Indented,
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 DateTimeZoneHandling = DateTimeZoneHandling.Utc,
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
-                ContractResolver = new IgnorePropertiesResolver(ignoreProperties),
-                Converters =
-                {
-                    new TransformationJsonConverter(),
-                    new PolymorphicSerializeJsonConverter<LinkedService>("type"),
-                    new PolymorphicSerializeJsonConverter<Trigger>("type"),
-                    new PolymorphicSerializeJsonConverter<Dataset>("type"),
-                    new PolymorphicSerializeJsonConverter<DatasetLocation>("type"),
-                    new PolymorphicSerializeJsonConverter<PipelineReference>("type"),
-                    new PolymorphicSerializeJsonConverter<LinkedServiceReference>("type")
-                }
+                ContractResolver = new AdfPropertiesResolver(propNamesToIgnore),
+                Converters = JsonUtils.GetJsonConverters()
             };
         }
 
@@ -44,10 +38,25 @@ namespace DataFactoryViewer.Utils
             if (o == null) { return String.Empty; }
             try
             {
-                return SafeJsonConvert.SerializeObject(o, _serializerSettings);
+                return JsonConvert.SerializeObject(o, _serializerSettings);
                 
             }
             catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return String.Empty;
+            }
+        }
+
+        public string ToAdfJson(object o)
+        {
+            if (o == null) { return String.Empty; }
+            try
+            {
+                return JsonConvert.SerializeObject(o, _adfSerializerSettings);
+
+            }
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return String.Empty;

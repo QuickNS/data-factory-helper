@@ -1,12 +1,26 @@
 using DataFactoryHelper;
 using DataFactoryViewer.Utils;
+using Microsoft.Azure.Management.DataFactory.Models;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Rest.Serialization;
+using Newtonsoft.Json;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(
+    options =>
+    {
+        options.SerializerSettings.Formatting = Formatting.Indented;
+        options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+        options.SerializerSettings.MissingMemberHandling = MissingMemberHandling.Ignore;
+        options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
+        options.SerializerSettings.Converters = JsonUtils.GetJsonConverters();
+    }
+    );
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddEndpointsApiExplorer();
