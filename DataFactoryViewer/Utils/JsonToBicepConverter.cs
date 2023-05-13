@@ -158,6 +158,16 @@ namespace DataFactoryViewer.Utils
                 case DataFactoryObjectType.Pipeline:
                     {
                         sb.Append($"param pipelineName string = '{resourceName}'\n");
+                        // search activity list to see if there is a Copy Activity
+                        // in which case we might want to parameterize the source and destination datasets
+                        var activities = JsonUtils.GetJsonPropertyValueAsArray("properties.activities", jToken);
+                        foreach (var activ in activities)
+                        {
+                            if (activ["type"].Value<string>() == "Copy")
+                            {
+                                sb.Append($"param IGotACopyActivity string = 'bazinga'\n");
+                            }
+                        }
                         break;
                     }
                 case DataFactoryObjectType.Dataflow:

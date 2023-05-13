@@ -15,8 +15,10 @@ namespace DataFactoryViewer.Utils
 
         protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
         {
+            List<string> priorityProperties = new List<string>() { "name", "type" };
             var baseProps = base.CreateProperties(type, memberSerialization);
-            var ordered = baseProps.OrderBy(p => p.PropertyName)
+            var ordered = baseProps.OrderByDescending(p => priorityProperties.Contains(p.PropertyName))
+                .ThenBy(p => p.PropertyName)
                 .ToList();
             return ordered;
         }

@@ -12,13 +12,37 @@ namespace DataFactoryViewer.Utils
         {
             return new List<JsonConverter>
                 {
+                    new Iso8601TimeSpanConverter(),
                     new TransformationJsonConverter(),
+                    new PolymorphicSerializeJsonConverter<SecretBase>("type"),
+                    new PolymorphicSerializeJsonConverter<FactoryRepoConfiguration>("type"),
+                    new PolymorphicSerializeJsonConverter<IntegrationRuntime>("type"),
+                    new PolymorphicSerializeJsonConverter<IntegrationRuntimeStatus>("type"),
+                    new PolymorphicSerializeJsonConverter<Credential>("type"),
+                    new PolymorphicSerializeJsonConverter<WebLinkedServiceTypeProperties>("type"),
+                    new PolymorphicSerializeJsonConverter<DatasetStorageFormat>("type"),
+                    new PolymorphicSerializeJsonConverter<DependencyReference>("type"),
+                    new PolymorphicSerializeJsonConverter<CompressionReadSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<ExportSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<ImportSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<LinkedIntegrationRuntimeType>("type"),
+                    new PolymorphicSerializeJsonConverter<CustomSetupBase>("type"),
+                    new PolymorphicSerializeJsonConverter<SsisObjectMetadata>("type"),
+                    new PolymorphicSerializeJsonConverter<CopyTranslator>("type"),
                     new PolymorphicSerializeJsonConverter<LinkedService>("type"),
+                    new PolymorphicSerializeJsonConverter<DataFlow>("type"),
                     new PolymorphicSerializeJsonConverter<Trigger>("type"),
                     new PolymorphicSerializeJsonConverter<Dataset>("type"),
                     new PolymorphicSerializeJsonConverter<DatasetLocation>("type"),
                     new PolymorphicSerializeJsonConverter<PipelineReference>("type"),
-                    new PolymorphicSerializeJsonConverter<LinkedServiceReference>("type")
+                    new PolymorphicSerializeJsonConverter<LinkedServiceReference>("type"),
+                    new PolymorphicSerializeJsonConverter<FormatReadSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<FormatWriteSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<StoreReadSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<StoreWriteSettings>("type"),
+                    new PolymorphicSerializeJsonConverter<CopySource>("type"),
+                    new PolymorphicSerializeJsonConverter<CopySink>("type"),
+                    new PolymorphicSerializeJsonConverter<Activity>("type")
                 };
         }
 
