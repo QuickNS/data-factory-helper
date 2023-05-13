@@ -17,13 +17,23 @@ namespace DataFactoryViewer.Controllers
         private readonly ILinkedServicesHelper _linkedServicesHelper;
         private readonly IDatasetHelper _dataSetHelper;
         private readonly IPipelinesHelper _pipelinelinesHelper;
+        private readonly IDataflowsHelper _dataflowsHelper;
         private readonly ITriggersHelper _triggersHelper;
         private readonly IAdfSerializer _serializer;
         private readonly IJsonToBicepConverter _bicepConverter;
         private readonly DataFactoryConfig _dataFactoryConfig;
         
 
-        public HomeController(IOptions<DataFactoryConfig> config, IAdfSerializer serializer, IJsonToBicepConverter converter, IPipelinesHelper pipelinesHelper, ITriggersHelper triggersHelper, IDatasetHelper datasetHelper, ILinkedServicesHelper linkedServicesHelper, ILogger<HomeController> logger)
+        public HomeController(
+            IOptions<DataFactoryConfig> config,
+            IAdfSerializer serializer,
+            IJsonToBicepConverter converter,
+            IPipelinesHelper pipelinesHelper,
+            IDataflowsHelper dataflowsHelper,
+            ITriggersHelper triggersHelper,
+            IDatasetHelper datasetHelper,
+            ILinkedServicesHelper linkedServicesHelper,
+            ILogger<HomeController> logger)
         {
             _logger = logger;
             _dataFactoryConfig = config.Value;
@@ -31,6 +41,7 @@ namespace DataFactoryViewer.Controllers
             _dataSetHelper = datasetHelper;
             _triggersHelper = triggersHelper;
             _pipelinelinesHelper = pipelinesHelper;
+            _dataflowsHelper = dataflowsHelper;
             _serializer = serializer;
             _bicepConverter = converter;
         }
@@ -62,6 +73,13 @@ namespace DataFactoryViewer.Controllers
             foreach (var pipeline in pipelines)
             {
                 model.Pipelines.Add(new PipelineDto(pipeline, _serializer, _bicepConverter));
+            }
+
+            //dataflows
+            var dataflows = _dataflowsHelper.GetDataFlowsAsync().Result;
+            foreach (var dataflow in dataflows)
+            {
+                model.Dataflows.Add(new DataflowDto(dataflow, _serializer, _bicepConverter));
             }
 
             //triggers

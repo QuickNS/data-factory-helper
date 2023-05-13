@@ -160,6 +160,11 @@ namespace DataFactoryViewer.Utils
                         sb.Append($"param pipelineName string = '{resourceName}'\n");
                         break;
                     }
+                case DataFactoryObjectType.Dataflow:
+                    {
+                        sb.Append($"param dataflowName string = '{resourceName}'\n");
+                        break;
+                    }
                 default: break;
             }
             return sb.ToString();
@@ -177,6 +182,8 @@ namespace DataFactoryViewer.Utils
                     return new JRaw("pipelineName");
                 case DataFactoryObjectType.Trigger:
                     return new JRaw("triggerName");
+                case DataFactoryObjectType.Dataflow:
+                    return new JRaw("dataflowName");
                 default: return new JRaw("");
             }
         }
@@ -193,6 +200,8 @@ namespace DataFactoryViewer.Utils
                     return $"\nresource pipeline 'Microsoft.DataFactory/factories/pipelines@{apiVersion}' = ";
                 case DataFactoryObjectType.Trigger:
                     return $"\nresource trigger 'Microsoft.DataFactory/factories/triggers@{apiVersion}' = ";
+                case DataFactoryObjectType.Dataflow:
+                    return $"\nresource trigger 'Microsoft.DataFactory/factories/dataflows@{apiVersion}' = ";
                 default: return String.Empty;
             }
         }

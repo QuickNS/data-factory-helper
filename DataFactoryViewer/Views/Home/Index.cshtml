@@ -17,6 +17,10 @@
         @Html.Partial("AdfAssetList", Model.Pipelines)
     </div>
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h1 class="display-6">dataflows</h1>
+        @Html.Partial("AdfAssetList", Model.Dataflows)
+    </div>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
         <h1 class="display-6">triggers</h1>
         @Html.Partial("AdfAssetList", Model.Triggers)
     </div>

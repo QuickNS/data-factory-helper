@@ -1,4 +1,4 @@
 ﻿namespace DataFactoryViewer.Data
 {
-    public enum DataFactoryObjectType { Dataset, LinkedService, Pipeline, Trigger}
+    public enum DataFactoryObjectType { Dataset, LinkedService, Pipeline, Dataflow, Trigger}
 }

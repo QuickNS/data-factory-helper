@@ -63,6 +63,12 @@ builder.Services.AddScoped<ITriggersHelper, TriggersHelper>(
         dataFactoryConfig.ResourceGroupName,
         dataFactoryConfig.FactoryName));
 
+builder.Services.AddScoped<IDataflowsHelper, DataflowsHelper>(
+    provider => new DataflowsHelper(
+        provider.GetService<IDataFactoryClient>(),
+        dataFactoryConfig.ResourceGroupName,
+        dataFactoryConfig.FactoryName));
+
 builder.Services.AddScoped<IAdfSerializer, AdfSerializer>();
 builder.Services.AddScoped<IJsonToBicepConverter, JsonToBicepConverter>();
 
